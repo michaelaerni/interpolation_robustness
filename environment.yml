@@ -1,0 +1,35 @@
+name: interpolation-robustness
+channels:
+  - conda-forge
+  - pytorch
+  - mosek
+dependencies:
+  - python=3.8
+  - pytorch=1.6
+  - torchvision=0.7
+  - cudatoolkit=10.1
+  - jupyterlab=3.0
+  - numpy=1.18
+  - matplotlib=3.3
+  - pillow=7.2
+  - scikit-learn=0.23
+  - plotly=4.14
+  - python-kaleido=0.2
+  - pandas=1.1
+  - ipywidgets=7.5
+  - cvxpy=1.1
+  - mosek=9.2
+  - tqdm=4.48
+  - psutil=5.8
+  - jax=0.2.10 # JAX requires exactly 0.2.10, 0.2.11 and newer might break!
+  - tensorflow-gpu>=2.2,<2.4
+  - mlflow=1.14
+  - python-dotenv=0.15
+  - pip=21.0
+  - pip:
+    - adversarial-robustness-toolbox==1.6.*
+    - tensorflow-datasets==4.2.*
+    - flax==0.3.*
+    # JAX with GPU support is not on PyPi and needs to be loaded from Google
+    - --find-links https://storage.googleapis.com/jax-releases/jax_releases.html
+    - jaxlib==0.1.62+cuda101
