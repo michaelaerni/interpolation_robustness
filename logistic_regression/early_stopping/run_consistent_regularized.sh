@@ -24,7 +24,6 @@ LOG_DIR="${REPOSITORY_DIR}/logs/${EXPERIMENT_NAME}"
 # Append Python module to python path in order to more cleanly call the experiment
 export PYTHONPATH="$MODULE_DIR:$PYTHONPATH"
 
-
 if $CONSISTENT_ATTACK; then
   consistent_attack_flag='--attack-train-consistent'
 else

@@ -24,19 +24,15 @@ LOG_EVERY_EPOCHS=1000
 # General settings
 REPOSITORY_DIR="$(realpath $(dirname $BASH_SOURCE)/../../)"
 MODULE_DIR="${REPOSITORY_DIR}/src"
-LOG_DIR="${REPOSITORY_DIR}/logs/${EXPERIMENT_NAME}"
 
 # Append Python module to python path in order to more cleanly call the experiment
 export PYTHONPATH="$MODULE_DIR:$PYTHONPATH"
-
 
 if $CONSISTENT_ATTACK; then
   consistent_attack_flag='--attack-train-consistent'
 else
   consistent_attack_flag=''
 fi
-
-mkdir -p "${LOG_DIR}"
 
 python -m interpolation_robustness.experiments.logistic_regression \
   --dataset "${DATASET}" \
