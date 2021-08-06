@@ -1,0 +1,7 @@
+.*
+!.gitignore
+*~
+data
+logs
+__pycache__
+mlruns/
