@@ -1,19 +1,17 @@
 Maximizing the robust margin provably overfits on noiseless data
 ================================================================
-This repository contains the code related to the paper
-["Maximizing the robust margin provably overfits on noiseless data"](https://openreview.net/forum?id=ujQKWaxFkrL)
-by Konstantin Donhauser, Alexandru Tifrea, Michael Aerni, Reinhard Heckel, and Fanny Yang,
-as well as code for some upcoming work.
-To cite our work:
+This repository contains the code related to an upcoming preprint,
+as well as the two workshop papers
 
-    @inproceedings{
-    donhauser2021maximizing,
-    title={Maximizing the robust margin provably overfits on noiseless data},
-    author={Konstantin Donhauser and Alexandru Tifrea and Michael Aerni and Reinhard Heckel and Fanny Yang},
-    booktitle={ICML 2021 Workshop on Adversarial Machine Learning},
-    year={2021},
-    url={https://openreview.net/forum?id=ujQKWaxFkrL}
-    }
+- _"Surprising benefits of ridge regularization for noiseless regression"_
+  ([pdf](pdf/surprising_benefits_of_ridge_regularization_for_noiseless_regression.pdf))
+  from the ICML 2021 [Overparameterization: Pitfalls & Opportunities](https://sites.google.com/view/icml2021oppo) workshop
+- _["Maximizing the robust margin provably overfits on noiseless data"](https://openreview.net/forum?id=ujQKWaxFkrL)_
+  ([pdf](maximizing_the_robust_margin_provably_overfits_on_noiseless_data.pdf))
+  from the ICML 2021 [A Blessing in Disguise: The Prospects and Perils of Adversarial Machine Learning](https://advml-workshop.github.io/icml2021/) workshop
+
+by Konstantin Donhauser, Alexandru Țifrea, Michael Aerni, Reinhard Heckel, and Fanny Yang.
+
 
 
 How to run experiments
