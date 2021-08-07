@@ -7,7 +7,7 @@ as well as the two workshop papers
   ([pdf](pdf/surprising_benefits_of_ridge_regularization_for_noiseless_regression.pdf))
   from the ICML 2021 [Overparameterization: Pitfalls & Opportunities](https://sites.google.com/view/icml2021oppo) workshop
 - _["Maximizing the robust margin provably overfits on noiseless data"](https://openreview.net/forum?id=ujQKWaxFkrL)_
-  ([pdf](maximizing_the_robust_margin_provably_overfits_on_noiseless_data.pdf))
+  ([pdf](pdf/maximizing_the_robust_margin_provably_overfits_on_noiseless_data.pdf))
   from the ICML 2021 [A Blessing in Disguise: The Prospects and Perils of Adversarial Machine Learning](https://advml-workshop.github.io/icml2021/) workshop
 
 by Konstantin Donhauser, Alexandru Țifrea, Michael Aerni, Reinhard Heckel, and Fanny Yang.
