@@ -1,16 +1,19 @@
-Maximizing the robust margin provably overfits on noiseless data
+Interpolation can hurt robust generalization even when there is no noise
 ================================================================
-This repository contains the code related to an upcoming preprint,
-as well as the two workshop papers
+This repository contains the code related to the preprint
 
-- _"Surprising benefits of ridge regularization for noiseless regression"_
-  ([pdf](pdf/surprising_benefits_of_ridge_regularization_for_noiseless_regression.pdf))
-  from the ICML 2021 [Overparameterization: Pitfalls & Opportunities](https://sites.google.com/view/icml2021oppo) workshop
-- _["Maximizing the robust margin provably overfits on noiseless data"](https://openreview.net/forum?id=ujQKWaxFkrL)_
-  ([pdf](pdf/maximizing_the_robust_margin_provably_overfits_on_noiseless_data.pdf))
-  from the ICML 2021 [A Blessing in Disguise: The Prospects and Perils of Adversarial Machine Learning](https://advml-workshop.github.io/icml2021/) workshop
+  > [Interpolation can hurt robust generalization even when there is no noise](https://arxiv.org/abs/2108.02883)
 
-by Konstantin Donhauser, Alexandru Țifrea, Michael Aerni, Reinhard Heckel, and Fanny Yang.
+by Konstantin Donhauser, Alexandru Țifrea, Michael Aerni, Reinhard Heckel, and Fanny Yang,
+as well as the two related workshop papers
+_"Surprising benefits of ridge regularization for noiseless regression"_
+([pdf](pdf/surprising_benefits_of_ridge_regularization_for_noiseless_regression.pdf))
+from the ICML 2021 [Overparameterization: Pitfalls & Opportunities](https://sites.google.com/view/icml2021oppo) workshop
+and _["Maximizing the robust margin provably overfits on noiseless data"](https://openreview.net/forum?id=ujQKWaxFkrL)_
+([pdf](pdf/maximizing_the_robust_margin_provably_overfits_on_noiseless_data.pdf))
+from the ICML 2021 [A Blessing in Disguise: The Prospects and Perils of Adversarial Machine Learning](https://advml-workshop.github.io/icml2021/) workshop.
+
+See the [Citations](#citations) section for details on how to cite our work.
 
 
 
@@ -155,3 +158,17 @@ The directory `$REPO_ROOT/src/` contains all code.
 The subdirectory `$REPO_ROOT/src/interpolation_robustness` is an importable Python
 module which keeps things modular and makes it very easy
 to reuse components between experiments.
+
+
+Citations
+---------
+Please cite this code and our work as
+
+    @misc{donhauser2021interpolation,
+        title={Interpolation can hurt robust generalization even when there is no noise},
+        author={Konstantin Donhauser and Alexandru Ţifrea and Michael Aerni and Reinhard Heckel and Fanny Yang},
+        year={2021},
+        eprint={2108.02883},
+        archivePrefix={arXiv},
+        primaryClass={stat.ML}
+    }
