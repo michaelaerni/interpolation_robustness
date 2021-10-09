@@ -1,8 +1,9 @@
 Interpolation can hurt robust generalization even when there is no noise
 ================================================================
-This repository contains the code related to the preprint
+This repository contains the official code of
 
   > [Interpolation can hurt robust generalization even when there is no noise](https://arxiv.org/abs/2108.02883)
+  (to appear in "Advances in Neural Information Processing Systems (NeurIPS), 2021")
 
 by Konstantin Donhauser, Alexandru Țifrea, Michael Aerni, Reinhard Heckel, and Fanny Yang,
 as well as the two related workshop papers
@@ -17,29 +18,8 @@ See the [Citations](#citations) section for details on how to cite our work.
 
 
 
-How to run experiments
-----------------------
-Before running any experiments, make sure to install all dependencies
-as described in the "Dependency manangement" section.
-
-All experiments are executable Python modules found under
-`$REPO_ROOT/src/interpolation_robustness/experiments/`.
-To run an experiment, make sure that `$REPO_ROOT/src/`
-is added to the `PYTHONPATH` environment variable
-and run
-
-      python -m interpolation_robustness.experiments.experiment_module
-
-where `experiment_module` is the module corresponding to the experiment to execute.
-All experiments provide a command line interface to vary _all_ parameters
-that can be varied.
-
-The other directories in this repository contain various artifacts related
-to the different experiments, e.g. scripts to run experiments or Jupyter notebooks for evaluation.
-
-
-Dependency management
----------------------
+Requirements
+------------
 ### Initial setup
 We manage dependencies using Conda.
 The most lean way to use Conda is via
@@ -61,10 +41,10 @@ and then run
 from the command line.
 
 Due to the way the CUDA dependency is implemented in jaxlib/XLA,
-the following workaround is required in order to have JAX run on a GPU.
+the following workaround is required to run JAX on a GPU.
 
-1. Make sure the Conda environemnt is enabled.
-2. Mimic the expeted CUDA install directory structure by performing
+1. Make sure the Conda environment is enabled.
+2. Mimic the expected CUDA install directory structure by performing
    `mkdir -p "${CONDA_PREFIX}/cuda/nvvm/libdevice/" && ln -s "${CONDA_PREFIX}/lib/libdevice.10.bc" "${CONDA_PREFIX}/cuda/nvvm/libdevice/"`
    from the command line.
    This essentially links the libdevice library installed by CONDA
@@ -78,7 +58,7 @@ the following workaround is required in order to have JAX run on a GPU.
 
 Alternatively, you might be able to simply point `--xla_gpu_cuda_data_dir`
 to your system's CUDA installation,
-but there might be version mismatches and things might or might not work.
+but there might be version mismatches that lead to crashes.
 
 ### Using the environment
 The environment can be enabled and disabled
@@ -98,39 +78,50 @@ We observed Mosek to be faster and more accurate than
 the standard solvers supplied with CVXPY.
 
 While Mosek is a commercial product,
-they provide free academic licences for research or educational purposes
+they provide free academic licenses for research or educational purposes
 at degree-granting academic institutions to faculty, students, and staff.
-To obtain a licence, visit https://www.mosek.com/products/academic-licenses/
+To obtain a license, visit https://www.mosek.com/products/academic-licenses/
 and register using your email address from your academic institution.
 
-The solver will by default assume the licence file to be in `$HOME/mosek/mosek.lic`.
+The solver will by default assume the license file to be in `$HOME/mosek/mosek.lic`.
 The path can be changed by setting the `MOSEKLM_LICENSE_FILE` environment variable.
 
-A licence is only required to run the `logistic_regression_dcp` experiment
+A license is only required to run the `logistic_regression_dcp` experiment
 with the Mosek solver.
 All other code, including the other solvers in `logistic_regression_dcp`,
-do not require a Mosek licence file to be present anywhere on your computer.
+do not require a Mosek license file to be present anywhere on your computer.
 If one of the experiment shell scripts contain `MOSEK` in their solver list,
 the experiments can also be run if `MOSEK` is removed or replaced.
 However, it might be that the results are less accurate or the
 optimization problems cannot be solved by the other solvers.
 
 
-Environment variables
----------------------
-We simplify working with environment variables by using the `python-dotenv` package.
-Place all environment variables in a file `.env` in the root of this repository.
-You can use `template.env` as a template.
-
 
 Experiments
 -----------
-All our experiments use one or more bash scripts to run experiments.
-The results are collected using [MLFlow](https://mlflow.org/)
-and plotted using Jupyter notebooks.
-If you are using MLFlow locally,
-the experiment working directory must be the same as the Jupyter working
-directory, else MLFlow fails to locate the experiment results.
+We provide one or more bash scripts to run each of our experiments.
+We use [MLFlow](https://mlflow.org/) to collect experiment results
+and Jupyter notebooks for evaluation.
+
+
+### Training
+Before running any experiments, make sure to install all dependencies
+as described in the "Requirements" section.
+
+All experiments are executable Python modules found under
+`src/interpolation_robustness/experiments/`.
+To run an experiment, make sure that `/src/`
+is added to the `PYTHONPATH` environment variable
+and run
+
+      python -m interpolation_robustness.experiments.experiment_module
+
+where `experiment_module` is the module corresponding to the experiment to execute.
+All experiments provide a command line interface to vary _all_ parameters
+that can be varied.
+
+The other directories in this repository contain various artifacts related
+to the different experiments, e.g. scripts to run experiments or Jupyter notebooks for evaluation.
 
 We ran all gradient descent experiments on a single NVIDIA GeForce GTX 1080 Ti graphics card
 and parallelized execution on an internal compute cluster.
@@ -138,33 +129,55 @@ However, each individual experiment runs within a few seconds to minutes,
 even on an off-the-shelf CPU.
 
 
+### Evaluation
+Each experiment directory contains one or more Jupyter notebooks.
+We use those notebooks to evaluate experiment results
+and create all plots in our papers.
+
+You can start Jupyter lab by issuing
+    
+    jupyter lab
+
+on the command line.
+If you are using MLFlow locally,
+the experiment working directory must be the same as the Jupyter working
+directory, else MLFlow fails to locate the experiment results.
+
+
+### Environment variables
+We simplify working with environment variables by using the `python-dotenv` package.
+Place all environment variables in a file `.env` in the root of this repository.
+You can use `template.env` as a template.
+
+
+
 Datasets
 --------
-Except synthetic data, some experiments support the following image datasets:
+Additional to synthetic data, some experiments support the following image datasets:
 
 - [MNIST](http://yann.lecun.com/exdb/mnist/)
 - [FashionMNIST](https://arxiv.org/abs/1708.07747) (MIT License)
 - [CIFAR10](https://www.cs.toronto.edu/~kriz/cifar.html)
 
 
-Repository and code structure
------------------------------
-Let `$REPO_ROOT` denote the directory containing this README.
-All datasets are by default stored in a subdirectory of
-`$REPO_ROOT/data/`.
+
+Repository structure
+--------------------
+All datasets are by default stored in a subdirectory of `/data/`.
 Logs and training artifacts are by default stored
-in a subdirectory of `$REPO_ROOT/logs/`.
-The directory `$REPO_ROOT/src/` contains all code.
-The subdirectory `$REPO_ROOT/src/interpolation_robustness` is an importable Python
-module which keeps things modular and makes it very easy
-to reuse components between experiments.
+in a subdirectory of `logs/`.
+The directory `src/` contains all Python code,
+with the subdirectory `src/interpolation_robustness`
+being an importable Python module.
+This structure allows us to reuse a lot of code between experiments.
+
 
 
 Citations
 ---------
 Please cite this code and our work as
 
-    @misc{donhauser2021interpolation,
+    @misc{Donhauser21,
         title={Interpolation can hurt robust generalization even when there is no noise},
         author={Konstantin Donhauser and Alexandru Ţifrea and Michael Aerni and Reinhard Heckel and Fanny Yang},
         year={2021},
