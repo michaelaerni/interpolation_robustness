@@ -177,11 +177,9 @@ Citations
 ---------
 Please cite this code and our work as
 
-    @misc{Donhauser21,
+    @article{Donhauser21,
         title={Interpolation can hurt robust generalization even when there is no noise},
         author={Konstantin Donhauser and Alexandru Ţifrea and Michael Aerni and Reinhard Heckel and Fanny Yang},
-        year={2021},
-        eprint={2108.02883},
-        archivePrefix={arXiv},
-        primaryClass={stat.ML}
+        journal={arXiv preprint arXiv:2108.02883},
+        year={2021}
     }
