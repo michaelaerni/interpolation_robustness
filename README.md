@@ -2,8 +2,8 @@ Interpolation can hurt robust generalization even when there is no noise
 ================================================================
 This repository contains the official code of
 
-  > [Interpolation can hurt robust generalization even when there is no noise](https://arxiv.org/abs/2108.02883)
-  (to appear in "Advances in Neural Information Processing Systems (NeurIPS), 2021")
+  > [Interpolation can hurt robust generalization even when there is no noise](https://papers.nips.cc/paper/2021/hash/c4f2c88e16a579900657c18726641c81-Abstract.html)
+  (in "Advances in Neural Information Processing Systems (NeurIPS), 2021")
 
 by Konstantin Donhauser, Alexandru Țifrea, Michael Aerni, Reinhard Heckel, and Fanny Yang,
 as well as the two related workshop papers
@@ -180,6 +180,6 @@ Please cite this code and our work as
     @article{Donhauser21,
         title={Interpolation can hurt robust generalization even when there is no noise},
         author={Konstantin Donhauser and Alexandru Ţifrea and Michael Aerni and Reinhard Heckel and Fanny Yang},
-        journal={arXiv preprint arXiv:2108.02883},
+        booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
         year={2021}
     }
